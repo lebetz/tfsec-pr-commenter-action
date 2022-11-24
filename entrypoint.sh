@@ -8,7 +8,8 @@ if [ "$INPUT_TFSEC_VERSION" != "latest" ]; then
 fi
 
 env
-wget -q https://api.github.com/repos/aquasecurity/tfsec/releases${TFSEC_VERSION} -O -
+wget --version
+wget https://api.github.com/repos/aquasecurity/tfsec/releases${TFSEC_VERSION} -e use_proxy=on
 
 wget -O - -q "$(wget -q https://api.github.com/repos/aquasecurity/tfsec/releases${TFSEC_VERSION} -O - | grep -m 1 -o -E "https://.+?tfsec-linux-amd64" | head -n1)" > tfsec-linux-amd64
 wget -O - -q "$(wget -q https://api.github.com/repos/aquasecurity/tfsec/releases${TFSEC_VERSION} -O - | grep -m 1 -o -E "https://.+?tfsec_checksums.txt" | head -n1)" > tfsec.checksums
