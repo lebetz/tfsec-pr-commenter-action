@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/alpine:3.12
+FROM alpine/curl:3.14
 
 RUN apk --no-cache --update add bash git \
     && rm -rf /var/cache/apk/*
