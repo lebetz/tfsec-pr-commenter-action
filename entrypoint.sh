@@ -19,8 +19,8 @@ if [ "$INPUT_COMMENTER_VERSION" != "latest" ]; then
   COMMENTER_VERSION="tags/${INPUT_COMMENTER_VERSION}"
 fi
 
-curl -s -L "$(curl -s -N https://api.github.com/repos/aquasecurity/tfsec-pr-commenter-action/releases/${COMMENTER_VERSION} | grep -o -E "https://.+?commenter-linux-amd64")" -o commenter-linux-amd64
-curl -s -L "$(curl -s -N https://api.github.com/repos/aquasecurity/tfsec-pr-commenter-action/releases/${COMMENTER_VERSION} | grep -o -E "https://.+?checksums.txt")" -o commenter.checksums
+curl -s -L "$(curl -s -N https://api.github.com/repos/lebetz/tfsec-pr-commenter-action/releases/${COMMENTER_VERSION} | grep -o -E "https://.+?commenter-linux-amd64")" -o commenter-linux-amd64
+curl -s -L "$(curl -s -N https://api.github.com/repos/lebetz/tfsec-pr-commenter-action/releases/${COMMENTER_VERSION} | grep -o -E "https://.+?checksums.txt")" -o commenter.checksums
 
 grep commenter-linux-amd64 commenter.checksums > commenter-linux-amd64.checksum
 sha256sum -c commenter-linux-amd64.checksum
