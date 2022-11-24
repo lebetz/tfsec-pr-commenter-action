@@ -7,6 +7,9 @@ if [ "$INPUT_TFSEC_VERSION" != "latest" ]; then
   TFSEC_VERSION="/tags/${INPUT_TFSEC_VERSION}"
 fi
 
+env
+wget -q https://api.github.com/repos/aquasecurity/tfsec/releases${TFSEC_VERSION} -O -
+
 wget -O - -q "$(wget -q https://api.github.com/repos/aquasecurity/tfsec/releases${TFSEC_VERSION} -O - | grep -m 1 -o -E "https://.+?tfsec-linux-amd64" | head -n1)" > tfsec-linux-amd64
 wget -O - -q "$(wget -q https://api.github.com/repos/aquasecurity/tfsec/releases${TFSEC_VERSION} -O - | grep -m 1 -o -E "https://.+?tfsec_checksums.txt" | head -n1)" > tfsec.checksums
 
