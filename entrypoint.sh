@@ -10,7 +10,8 @@ fi
 curl -s "$(curl -s -N https://api.github.com/repos/aquasecurity/tfsec/releases${TFSEC_VERSION} | grep -m 1 -o -E "https://.+?tfsec-linux-amd64" | head -n1)" > tfsec-linux-amd64
 curl -s "$(curl -s -N https://api.github.com/repos/aquasecurity/tfsec/releases${TFSEC_VERSION} | grep -m 1 -o -E "https://.+?tfsec_checksums.txt" | head -n1)" > tfsec.checksums
 
-grep tfsec-linux-amd64 tfsec.checksums > tfsec-linux-amd64.checksum
+cat tfsec.checksums
+#grep tfsec-linux-amd64 tfsec.checksums > tfsec-linux-amd64.checksum
 sha256sum -c tfsec-linux-amd64.checksum
 install tfsec-linux-amd64 /usr/local/bin/tfsec
 
