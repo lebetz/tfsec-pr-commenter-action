@@ -77,7 +77,6 @@ func main() {
 				validCommentWritten = true
 			case commenter.CommentNotValidError:
 				fmt.Println("Ignoring - change not part of the current PR")
-				continue
 			default:
 				errMessages = append(errMessages, err.Error())
 			}
