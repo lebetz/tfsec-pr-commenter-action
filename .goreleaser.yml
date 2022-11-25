@@ -26,6 +26,6 @@ archives:
 release:
   prerelease: auto
   github:
-    owner: kolomied
+    owner: lebetz
     name: tfsec-pr-commenter-action
 
